@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Desdobramento Lotofácil</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1>Desdobramento Lotofácil</h1>
+
+  <p>Quantidade de números da aposta <span title="Selecione de 15 até 20 números">❔</span></p>
+  <div class="controle-aposta">
+    <button onclick="alterarQtd(-1)">-</button>
+    <span id="qtd-aposta">17</span>
+    <button onclick="alterarQtd(1)">+</button>
+  </div>
+
+  <p>Selecione os números abaixo:</p>
+  <button id="btn-aleatorio" style="margin-bottom: 15px;" onclick="marcarAleatorios()">Gerar jogo aleatório</button>
+  <button id="btn-limpar" onclick="limparCheckboxes()">Limpar seleção</button>
+  <div id="numeros-lotofacil">
+    <!-- function gerarDesdobramento() {
+  const selecionados = Array.from(document.querySelectorAll('#numeros-lotofacil input:checked')).map(el => el.value);
+  const garantia = document.getElementById('garantia').value;
+  const resultadoDiv = document.getElementById('resultado-lotofacil');
+  const qtdSelecionada = parseInt(document.getElementById('qtd-aposta').innerText, 10);
+
+  resultadoDiv.innerHTML = ''; // limpa antes de gerar novo
+
+  // Validação básica
+  if (selecionados.length !== qtdSelecionada) {
+    resultadoDiv.innerText = `Você deve selecionar exatamente ${qtdSelecionada} números.`;
+    return;
+  }
+
+  // Tabela de regras para Lotofácil
+  const regras = {
+    "12": {20: 4, 21: 13},
+    "13": {18: 6, 19: 21, 20: 41, 21: 191, 22: 276},
+    "14": {17: 85, 18: 348, 19: 1104, 20: 3876, 21: 12376}
+  };
+
+  const quantidadeJogos = (regras[garantia] && regras[garantia][qtdSelecionada]) || 0;
+
+  if (quantidadeJogos > 0) {
+    const combinacoes = gerarCombinacoesAleatorias(selecionados, 15, quantidadeJogos);
+    mostrarResultados(combinacoes, resultadoDiv)
+    resultadoDiv.innerHTML = `<h3>${combinacoes.length} jogos foram gerados</h3>`;
+    resultadoDiv.innerHTML += combinacoes.map(c => `<p>${c.join(' - ')}</p>`).join('');
+  } else {
+    resultadoDiv.innerHTML = `<p>Esta condição ainda não foi implementada.</p>`;
+  }
+} -->
+  </div>
+
+  <p>Qual garantia deseja?</p>
+  <select id="garantia">
+    <option value="12">12 pontos</option>
+    <option value="13">13 pontos</option>
+    <option value="14">14 pontos</option>
+  </select>
+  
+
+  
+
+  <button onclick="gerarDesdobramento()">Gerar combinações</button>
+
+  <div id="resultado-lotofacil"></div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+
+
